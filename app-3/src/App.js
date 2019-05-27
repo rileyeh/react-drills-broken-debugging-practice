@@ -12,14 +12,18 @@ class App extends Component {
 
   handleChange = (e) => {
     this.setState({
-      input: e
+      input: e.target.value
     })
   }
 
   render() {
-    let bobsList = this.state.bobs.filter(bob => bob.includes(this.state.input).map(bob => (
+
+    let bobsList = this.state.bobs
+    .filter(bob => bob.includes(this.state.input))
+    .map(bob => (
       <h3 key={bob}>{bob}</h3>
     ))
+
     return (
       <div className="App">
         <h1>Famous Bobs</h1>
@@ -29,5 +33,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
